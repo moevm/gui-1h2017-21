@@ -28,7 +28,7 @@ void MainWindow::on_pushButton_clicked()
     //Подключаем базу данных
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("D:\\chords.db");
+    db.setDatabaseName(qApp->applicationDirPath()+"/db.db");
     if(!db.open()){
         qDebug() << "connection error";
         return;
