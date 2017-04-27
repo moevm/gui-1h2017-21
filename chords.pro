@@ -31,4 +31,4 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 RESOURCES += \
-    res.qrc
+    data.qrc

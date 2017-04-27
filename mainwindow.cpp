@@ -33,25 +33,30 @@ void MainWindow::on_pushButton_clicked()
         qDebug() << "connection error";
         return;
     }
+    buff.clear();
     qDebug() << "succesfully conected to database";
     QSqlQuery query;
     query.exec("SELECT * FROM song");
     QStandardItemModel *model = new QStandardItemModel(this);
     QStandardItem *item;
-    int count = 0;
     QStringList horizontalHeader;
     horizontalHeader.append("Singer / Songname");
     model->setHorizontalHeaderLabels(horizontalHeader);
     while (query.next())
     {
       item = new QStandardItem(QString(query.value(1).toString() + " -  " + query.value(0).toString()));
-      item->appendRow(new QStandardItem(query.value(2).toString()));
+      //item->appendRow(new QStandardItem(query.value(2).toString()));
       model->appendRow(item);
-      count++;
+      buff.append(query.value(2).toString());
     }
     ui->treeView->setModel(model);
 }
 
 void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
+    QMessageBox *msg = new QMessageBox;
+    msg->setText(buff[index.row()]);
+    msg->exec();
+    delete msg;
+
 }

@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QStringList buff;
 };
 
 #endif // MAINWINDOW_H
