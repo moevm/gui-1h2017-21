@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStandardItemModel>
+#include <QtSql>
+
 
 namespace Ui {
 class MainWindow;
@@ -20,9 +23,16 @@ private slots:
 
     void on_treeView_clicked(const QModelIndex &index);
 
+    void on_pushButton_2_clicked();
+
+    void add(QString str);
+
 private:
     Ui::MainWindow *ui;
     QStringList buff;
+    QStandardItemModel *model;
+    QSqlDatabase db;
+    QString choice();
 };
 
 #endif // MAINWINDOW_H

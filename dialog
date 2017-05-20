@@ -1,0 +1,6 @@
+#include "dialog"
+
+dialog::dialog(QWidget *parent) : QWidget(parent)
+{
+
+}
